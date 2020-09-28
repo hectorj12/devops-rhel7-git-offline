@@ -1,0 +1,14 @@
+---
+
+  - name: Copy rpms
+    copy:
+      src: ../rpm/
+      dest: /tmp/git_rpm/
+
+  - name: Install Git
+    shell: rpm -ivh --force  *.rpm
+    args:
+      chdir: /tmp/git_rpm/
+    become: yes
+
+...
